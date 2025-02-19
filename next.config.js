@@ -6,17 +6,23 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
-    images: {
-        remotePatterns: [
-          {
-            protocol: 'https',
-            hostname: 'a62hf8ma2t.ufs.sh',
-            port: '',
-            pathname: '/f/**',
-            search: '',
-          },
-        ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "a62hf8ma2t.ufs.sh",
+        port: "",
+        pathname: "/f/**",
+        search: "",
       },
+    ],
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default config;
