@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 function TopNav() {
   return (
-    <nav className="flex w-full items-center justify-between p-4 text-xl font-semibold text-gray-950">
-      <div>Gallery</div>
+    <nav className="flex w-full items-center justify-between p-4 text-xl font-semibold text-gray-600">
+      <div>In Memories of Vivian</div>
       <div>Sign In</div>
     </nav>
   )
