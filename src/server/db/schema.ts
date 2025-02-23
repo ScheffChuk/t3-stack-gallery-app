@@ -4,8 +4,8 @@
 import { sql } from "drizzle-orm";
 import {
   index,
+  integer,
   pgTableCreator,
-  serial,
   timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
@@ -23,7 +23,7 @@ export const createTable = pgTableCreator(
 export const images = createTable(
   "image",
   {
-    id: serial("id").primaryKey(),
+    id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
     name: varchar("name", { length: 256 }).notNull(),
     url: varchar("url", { length: 1024 }).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true })
