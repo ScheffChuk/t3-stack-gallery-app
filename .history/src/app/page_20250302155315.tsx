@@ -1,4 +1,4 @@
-import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import { db } from "~/server/db";
 
@@ -24,11 +24,11 @@ export default async function HomePage() {
   return (
     <main>
       <SignedOut>
-        <div className="h-full w-full text-2xl text-center">Please sign in </div>
+        <div className="h-full w-full text-2xl">Please sign in </div>
       </SignedOut>
-      <SignedIn>
+      <SignedOut>
         <Images />
-      </SignedIn>
+      </SignedOut>
     </main>
   );
 }
