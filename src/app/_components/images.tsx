@@ -6,16 +6,17 @@ export async function Images() {
   const images = await getMyImages();
 
   return (
-    <div className="grid grid-cols-1 justify-center justify-items-center gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-1 justify-center justify-items-center md:grid-cols-3 lg:grid-cols-5 gap-4 m-3">
       {images.map((image) => (
         <div key={image.id}>
           <Link href={`/image/${image.id}`}>
             <Image
               src={image.url}
-              style={{ objectFit: "contain" }}
-              width={480}
-              height={480}
+              style={{ objectFit: "cover" }}
+              width={300}
+              height={300}
               alt={image.name}
+              className="rounded-sm w-60 h-60"
             />
           </Link>
         </div>
