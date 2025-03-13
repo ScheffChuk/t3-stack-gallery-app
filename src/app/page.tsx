@@ -1,5 +1,6 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { Images } from "./_components/images";
+import { Gallery } from "../components/gallery";
+import Footer from "~/components/footer";
 
 export const dynamic = "force-dynamic";
 
@@ -12,8 +13,9 @@ export default async function HomePage() {
         </div>
       </SignedOut>
       <SignedIn>
-        <Images />
+        <Gallery />
       </SignedIn>
+      <Footer />
     </main>
   );
 }

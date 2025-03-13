@@ -4,10 +4,12 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { ClerkProvider } from "@clerk/nextjs";
-import TopNav from "./_components/topnav";
+import Header from "../components/header";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
+import { Toaster } from "sonner";
+import Footer from "~/components/footer";
 
 export const metadata: Metadata = {
   title: "T3 stack gallery app",
@@ -33,11 +35,12 @@ export default function RootLayout({
         />
         <body>
           <div className="grid h-screen grid-rows-[auto,1fr]">
-            <TopNav />
+            <Header />
             <main className="overflow-y-scroll">{children}</main>
           </div>
           {modal}
           <div id="modal-root" />
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
