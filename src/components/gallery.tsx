@@ -6,7 +6,7 @@ export async function Gallery() {
   const images = await getMyImages();
 
   return (
-    <div className="grid grid-cols-1 justify-center justify-items-center md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div className="grid grid-cols-1 justify-center justify-items-center gap-4 md:grid-cols-3 lg:grid-cols-5 px-16">
       {images.map((image) => (
         <div key={image.id}>
           <Link href={`/image/${image.id}`}>
@@ -16,7 +16,7 @@ export async function Gallery() {
               width={300}
               height={300}
               alt={image.name}
-              className="rounded-sm w-60 h-60"
+              className="h-60 w-60 rounded-sm"
             />
           </Link>
         </div>
