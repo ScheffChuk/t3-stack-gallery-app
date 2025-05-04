@@ -1,8 +1,7 @@
-import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="mt-20 mb-4 px-4 text-center text-gray-500">
+    <footer className="mb-4 mt-20 px-4 text-center text-gray-500">
       <small className="mb-2 block text-xs">
         &copy; 2025 Scheff. All rights reserved.
       </small>
