@@ -3,6 +3,7 @@ import { UploadThingError } from "uploadthing/server";
 import { auth } from "@clerk/nextjs/server";
 import { db } from "~/server/db";
 import { images } from "~/server/db/schema";
+import { ratelimit } from "~/server/ratelimit";
 
 const f = createUploadthing();
 
@@ -27,8 +28,12 @@ export const ourFileRouter = {
       // eslint-disable-next-line @typescript-eslint/only-throw-error
       if (!user.userId) throw new UploadThingError("Unauthorized");
 
+      const { success } = await ratelimit.limit(user.userId);
+      // eslint-disable-next-line @typescript-eslint/only-throw-error
+      if (!success) throw new UploadThingError("Ratelimitted");
+
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
-      return { userId: user.userId};
+      return { userId: user.userId };
     })
     .onUploadComplete(async ({ metadata, file }) => {
       await db.insert(images).values({

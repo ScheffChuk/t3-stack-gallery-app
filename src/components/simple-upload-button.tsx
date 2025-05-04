@@ -62,10 +62,13 @@ export function SimpleUploadButton() {
         </div>,
       );
     },
-    onUploadError() {
+    onUploadError(error) {
+      posthog.capture("upload_error", { error });
+      toast.dismiss("upload_begin");
       toast.error("Upload failed!");
     },
     onClientUploadComplete() {
+      toast.dismiss("upload_begin");
       toast.success("Upload complete!");
       router.refresh();
     },
